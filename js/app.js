@@ -1,3 +1,4 @@
+// search books
 const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -5,23 +6,29 @@ const searchBook = () => {
     // clear search field
     searchField.value = '';
 
+    if (searchText === '') {
+        alert("put valid input!!");
+    }
+
     // load data
-    const url = `http://openlibrary.org/search.json?q=${searchText}`
+    const url = `https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data.docs))
 
 }
+// show search results
 const displaySearchResult = books => {
     const searchResult = document.getElementById('search-result');
+
     // clear searchresult
     searchResult.textContent = '';
+
     // count search result
-    document.getElementById('result-count').innerText = `Result Found: ${books.length}`
+    document.getElementById('result-count').innerText = `Result Found: ${books.length} Books`
 
     books.forEach(book => {
         const div = document.createElement('div')
-
         div.classList.add('col')
         div.innerHTML = `
             <div class="card h-100">
