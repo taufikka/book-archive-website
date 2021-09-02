@@ -58,7 +58,7 @@ const displaySearchResult = data => {
         div.classList.add('col')
         div.innerHTML = `
             <div class="card h-100">
-                <img img-fluid src='https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg' class="card-img-top" alt="...">
+                <img src='https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg' class="card-img-top" alt="...">
                 <div class="card-body">
                      <h5 class="card-title">${book.title}</h5>
                      <p class="card-text">by ${book.author_name ? book.author_name : 'unknown'}</p>
